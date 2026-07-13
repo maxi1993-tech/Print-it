@@ -27,3 +27,13 @@ arrowLeft.addEventListener("click", function() {
 arrowRight.addEventListener("click", function() {
 	console.log("click droit");
 });
+
+const dotsContainer = document.querySelector(".dots");
+for (let slideIndex = 0; slideIndex < slides.length; slideIndex++) {
+	const dotElement = document.createElement("span");
+	dotElement.classList.add("dot");
+	if (slideIndex === 0) {
+		dotElement.classList.add("dot_selected");
+	}
+	dotsContainer.appendChild(dotElement);
+}
