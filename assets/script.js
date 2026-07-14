@@ -24,7 +24,12 @@ const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p")
 
 arrowLeft.addEventListener("click", function() {
-	currentIndex = currentIndex - 1;
+	if (currentIndex === 0) {
+    currentIndex = slides.length - 1
+    } else { 
+      currentIndex = currentIndex - 1
+      
+    }
 	document.querySelector(".dot_selected").classList.remove("dot_selected");
 	document.querySelectorAll(".dot")[currentIndex].classList.add("dot_selected");
     bannerImg.src = "./assets/images/slideshow/" + slides[currentIndex].image;
@@ -32,7 +37,11 @@ arrowLeft.addEventListener("click", function() {
 });
 
 arrowRight.addEventListener("click", function() {
-	currentIndex = currentIndex + 1;
+	if (currentIndex === slides.length - 1) {
+      currentIndex = 0;         
+    } else { 
+      currentIndex = currentIndex + 1
+    }
 	document.querySelector(".dot_selected").classList.remove("dot_selected");
 	document.querySelectorAll(".dot")[currentIndex].classList.add("dot_selected");
     bannerImg.src = "./assets/images/slideshow/" + slides[currentIndex].image;
