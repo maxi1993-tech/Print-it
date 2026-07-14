@@ -24,7 +24,11 @@ const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p")
 
 arrowLeft.addEventListener("click", function() {
-	console.log("click gauche");
+	currentIndex = currentIndex - 1;
+	document.querySelector(".dot_selected").classList.remove("dot_selected");
+	document.querySelectorAll(".dot")[currentIndex].classList.add("dot_selected");
+    bannerImg.src = "./assets/images/slideshow/" + slides[currentIndex].image;
+	bannerText.innerHTML = slides[currentIndex].tagLine;
 });
 
 arrowRight.addEventListener("click", function() {
