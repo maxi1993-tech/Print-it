@@ -24,16 +24,20 @@ const lastIndex = slides.length - 1;
 const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p");
 
+function updateCarousel() {
+	document.querySelector(".dot_selected").classList.remove("dot_selected");
+	document.querySelectorAll(".dot")[currentIndex].classList.add("dot_selected");
+	bannerImg.src = "./assets/images/slideshow/" + slides[currentIndex].image;
+	bannerText.innerHTML = slides[currentIndex].tagLine;
+}
+
 arrowLeft.addEventListener("click", function() {
 	if (currentIndex === 0) {
 		currentIndex = lastIndex;
 	} else {
 		currentIndex = currentIndex - 1;
 	}
-	document.querySelector(".dot_selected").classList.remove("dot_selected");
-	document.querySelectorAll(".dot")[currentIndex].classList.add("dot_selected");
-	bannerImg.src = "./assets/images/slideshow/" + slides[currentIndex].image;
-	bannerText.innerHTML = slides[currentIndex].tagLine;
+	updateCarousel();
 });
 
 arrowRight.addEventListener("click", function() {
@@ -42,10 +46,7 @@ arrowRight.addEventListener("click", function() {
 	} else {
 		currentIndex = currentIndex + 1;
 	}
-	document.querySelector(".dot_selected").classList.remove("dot_selected");
-	document.querySelectorAll(".dot")[currentIndex].classList.add("dot_selected");
-	bannerImg.src = "./assets/images/slideshow/" + slides[currentIndex].image;
-	bannerText.innerHTML = slides[currentIndex].tagLine;
+	updateCarousel();
 });
 
 const dotsContainer = document.querySelector(".dots");
