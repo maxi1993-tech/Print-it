@@ -20,12 +20,13 @@ const slides = [
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 let currentIndex = 0;
+const lastIndex = slides.length - 1;
 const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p");
 
 arrowLeft.addEventListener("click", function() {
 	if (currentIndex === 0) {
-		currentIndex = slides.length - 1;
+		currentIndex = lastIndex;
 	} else {
 		currentIndex = currentIndex - 1;
 	}
@@ -36,7 +37,7 @@ arrowLeft.addEventListener("click", function() {
 });
 
 arrowRight.addEventListener("click", function() {
-	if (currentIndex === slides.length - 1) {
+	if (currentIndex === lastIndex) {
 		currentIndex = 0;
 	} else {
 		currentIndex = currentIndex + 1;
